@@ -26,7 +26,7 @@ def select(name):
 
 
 def select_all():
-    query = "SELECT * FROM tb_scores"
+    query = "SELECT * FROM tb_scores ORDER BY high_score DESC"
 
     conn = connect_DB()
     c = conn.cursor()
@@ -88,5 +88,5 @@ def reg_Score(player_name, score):
         
 
 
-
-#insert('Lourdes', 300, 600)
+for i in select_all():
+    print(i)
