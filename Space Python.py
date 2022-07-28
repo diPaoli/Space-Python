@@ -1,5 +1,6 @@
 import turtle
 import random
+import matplotlib.pyplot as plt
 
 # setup the window and background
 scr = turtle.Turtle()
@@ -80,7 +81,7 @@ while lives > 0:
     obs.penup()
     obs.speed(0)
     obs.setpos(350,random.randrange(-100,100,50))
-    obs.speed(random.randrange(1,3))
+    obs.speed(random.randrange(2,4))
     obs.showturtle()
     obs.setx(-110)
 
@@ -108,7 +109,17 @@ while lives > 0:
             scr.screen.delay(0)
             
             # asks the name of the player to save in the DB
-            scr.screen.textinput('Record your score!', 'Type your name: ')
+            pl_name = scr.screen.textinput('Record your score!', 'Type your name: ')
+
+            # record player's score
+            import db_func
+            db_func.reg_Score(pl_name, score)
+
+            # shows registered scores
+            import gridScores
+            gridScores.show_Score()
+            
+
             break
         
         obs.hideturtle()
