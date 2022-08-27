@@ -6,7 +6,7 @@ def show_Score():
     import db_func
     scores_data = db_func.select_all() 
 
-    import tkinter as tk
+    #import tkinter as tk
     import customtkinter as ctk
 
     ctk.set_appearance_mode("System")  # Modes: system (default), light, dark
